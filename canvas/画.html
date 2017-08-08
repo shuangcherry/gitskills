@@ -1,0 +1,40 @@
+<html>
+  <head lang="en">
+	  <meta charset="UTF-8">
+	  <title>画</title>
+	  <script>
+	     function draw(id){
+		    var canvas=document.getElementById(id);
+			if(canvas==null)
+			{
+			  return false;
+			}
+			var context=canvas.getContext("2d");
+			context.fillStyle="#eeeeef";
+			context.fillRect(0,0,500,500);
+	        var dx=100;
+			var dy=100;
+			var s=100;
+			context.beginPath();
+			context.fillStyle="rgb(100,200,100)";
+			context.strokeStyle="rgb(0,0,100)";
+			var dig=Math.PI/15*11;
+			var x=Math.sin(0);
+			var y=Math.cos(0);
+		
+			for(var i=0;i<30;i++)
+			{
+			  var x=Math.sin(i*dig);
+			  var y=Math.cos(i*dig);
+			  context.lineTo(dx+x*s,dy+y*s);
+			}
+			context.closePath();
+			context.fill();
+			context.stroke();
+		}
+	  </script>
+  </head>
+  <body onload="draw('mycanvas')">
+      <canvas id="mycanvas" width="500px" height="500px"></canvas>
+  </body>
+</html>

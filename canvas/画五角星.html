@@ -1,0 +1,53 @@
+<html>
+  <head lang="en">
+	  <meta charset="UTF-8">
+	  <title>画五角星</title>
+	  <script>
+	     function draw(id){
+		    var canvas=document.getElementById(id);
+			if(canvas==null)
+			{
+			  return false;
+			}
+			var context=canvas.getContext("2d");
+			context.fillStyle="#eeeeef";
+			context.fillRect(0,0,500,500);
+			context.shadowOffsetX=40;
+			context.shadowOffsetY=20;
+			context.shadowColor="rgba(100,100,100,0.5)";
+			context.shadowBrul=1;
+			//context.translate(20,20);
+			for(var i=0;i<3;i++)
+			{
+			  create5Star(context);
+			  context.translate(100,100);
+			}
+			}
+			function create5Star(context)
+			{
+				var dx=100;
+				var dy=100;
+				var s=50;
+				context.beginPath();
+				context.fillStyle="rgb(255,0,0)";
+				context.strokeStyle="rgb(0,0,100)";
+				var dig=Math.PI/5*4;
+				var x=Math.sin(0);
+				var y=Math.cos(0);
+			
+				for(var i=0;i<5;i++)
+				{
+				  var x=Math.sin(i*dig);
+				  var y=Math.cos(i*dig);
+				  context.lineTo(dx+x*s,dy+y*s);
+				}
+				context.closePath();
+				context.fill();
+				context.stroke();
+		    }
+	  </script>
+  </head>
+  <body onLoad="draw('mycanvas')">
+      <canvas id="mycanvas" width="500px" height="500px"></canvas>
+  </body>
+</html>

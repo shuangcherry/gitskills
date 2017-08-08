@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>线性渐变</title>
+</head>
+
+<body onload="draw('mycanvas')">
+<canvas id="mycanvas" width="500px" height="500px"></canvas>
+
+<script>
+	function draw(id)
+	{
+		var canvas=document.getElementById(id);
+		if(canvas==null)
+		{
+			return false;
+		}
+		var context=canvas.getContext("2d");
+		var g1=context.createLinearGradient(0,0,0,200);	
+		g1.addColorStop(0,"blue");
+		g1.addColorStop(0.8,"red");
+		g1.addColorStop(1,"yellow");
+		context.fillStyle=g1;
+		context.fillRect(0,0,400,400);
+	}
+</script>
+</body>
+</html>
